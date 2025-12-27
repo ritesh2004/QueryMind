@@ -14,6 +14,7 @@ import subprocess
 import json
 import re
 from datetime import datetime
+import os
 
 # Custom CSS for modern look
 STYLE_SHEET = """
@@ -84,6 +85,8 @@ QPushButton#IconButton {
 """
 DBManager = None
 global model_name_global
+
+basedir = os.path.dirname(__file__)
 
 class ChatInput(QTextEdit):
     """Custom text edit to handle Enter vs Shift+Enter."""
@@ -575,7 +578,8 @@ class SettingsTab(QWidget):
     def save_settings(self):
         try:
             self.model = self.choose_model_edit.currentText().strip()
-            with open("settings.json", "w") as f:
+            settings_path = resource_path("settings.json")
+            with open(settings_path, "w") as f:
                 config = {
                     "database" : {
                         "type" : self.db_type_input.text().strip(),
@@ -597,7 +601,8 @@ class SettingsTab(QWidget):
           return None
         
     def load_settings(self):
-        with open("settings.json", "r") as f:
+        settings_path = resource_path("settings.json")
+        with open(settings_path, "r") as f:
             self.config = json.load(f)
         
 class MainWindow(QMainWindow):
@@ -627,9 +632,14 @@ def extract_model_names(output: str):
 
     return models
 
+def resource_path(path):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, path)
+    return os.path.join(os.path.abspath("."), path)
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QtGui.QIcon('logo.ico'))
+    app.setWindowIcon(QtGui.QIcon(os.path.join(basedir, 'logo.ico')))
     window = MainWindow()
     window.show()
     sys.exit(app.exec())

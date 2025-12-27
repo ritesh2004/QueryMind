@@ -47,15 +47,15 @@ class OllamaAgent(QThread):
                 {"role": "user", "content": self.query}
             ]
             
-            print("Input: ", messages)
+            # print("Input: ", messages)
             
             response = chat(
                 model=self.model_name,
                 messages=messages
             )
             
-            print("Response: ", response)
-            print("Type: ", type(response))
+            # print("Response: ", response)
+            # print("Type: ", type(response))
             
             if response and 'message' in response:
                 self.response_received.emit("sql", self.extract_message_content(response))
