@@ -23,7 +23,9 @@ It uses **local LLMs via Ollama** to convert user prompts into SQL queries, exec
 
 ## 🖼️ Application Preview
 
-_Add screenshots here_
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6daa9e4f-26a2-4fc3-93ec-ada484d7e26a" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6aee764f-502b-4951-8c96-65a42a8119bd" />
 
 - Chat Tab – Query & results view  
 - Settings Tab – Database & model configuration
@@ -195,8 +197,8 @@ MIT License
 **Ritesh Pramanik**
 Electronics & Software Engineer
 
-🔗 Portfolio: <your-portfolio-link>
-🔗 LinkedIn: <your-linkedin-link>
+🔗 Portfolio: https://ritesh-pramanik.vercel.app
+🔗 LinkedIn:  https://www.linkedin.com/in/ritesh-pramanik-8ba316260
 
 ---
 
